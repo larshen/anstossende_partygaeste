@@ -1,13 +1,29 @@
 // anstossende_partygaeste.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
+//https://www.programmieraufgaben.ch/aufgabe/anstossende-partygaeste/b2jrq8pb
 
 #include <iostream>
 
+using namespace std;
+int erwartete_gaeste;
+
+int anstoss(const int& gaeste);
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Wie viele leute kommen? ";
+    cin >> erwartete_gaeste;
+    cout << anstoss(2) << " mal Prost";
 }
 
+int anstoss(const int& gaeste)
+{
+    //n*(n-1)/2
+    if (gaeste < erwartete_gaeste)
+    {
+        return (gaeste * (gaeste - 1) / 2) + anstoss(gaeste + 1);
+    }
+    return gaeste * (gaeste - 1) / 2;
+}
 // Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
 // Programm debuggen: F5 oder "Debuggen" > Menü "Debuggen starten"
 
